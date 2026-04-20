@@ -13,6 +13,21 @@
     
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '726022727205241');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=726022727205241&ev=PageView&noscript=1"
+    /></noscript>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -39,7 +54,7 @@
                  alt="Capa do e-book Pare de Se Sabotar"
                  class="w-64 md:w-80 mx-auto mb-8 shadow-2xl rounded-lg transform transition-transform duration-500 hover:scale-105">
 
-            <a href="https://pay.hotmart.com/I100471987W" class="cta-button inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg transform transition-all duration-300 hover:scale-110">
+            <a href="https://pay.hotmart.com/I100471987W" class="cta-button purchase-trigger inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg transform transition-all duration-300 hover:scale-110">
                 QUERO DESTRAVAR MINHA VIDA AGORA!
             </a>
             <p class="mt-4 text-sm text-slate-400 italic">Acesso imediato • Conteúdo testado e validado</p>
@@ -77,7 +92,7 @@
                 <div>
                     <h2 class="text-2xl md:text-3xl font-bold mb-4">Quem vai te guiar?</h2>
                     <p class="text-slate-600 leading-relaxed">
-                        Meu nome é <strong>Benedito Rodrigo</strong>. Sou Desenvolvedor de Software, Especialista em Alta Performance  e Ministro Extraordinário da Comunhão. Durante anos, fui meu próprio maior inimigo, vendo o tempo passar enquanto minhas ideias morriam na gaveta. Descobri que a verdadeira produtividade só nasce quando unimos <strong>estratégia técnica, mentalidade forte e propósito real</strong>. Este guia não é teoria de internet; é o caminho que eu trilhei para sair da inércia e que agora entrego em suas mãos.
+                        Meu nome é <strong>Benedito Rodrigo</strong>. Sou Desenvolvedor de Software, Especialista em Alta Performance e Ministro Extraordinário da Comunhão. Durante anos, fui meu próprio maior inimigo, vendo o tempo passar enquanto minhas ideias morriam na gaveta. Descobri que a verdadeira produtividade só nasce quando unimos <strong>estratégia técnica, mentalidade forte e propósito real</strong>. Este guia não é teoria de internet; é o caminho que eu trilhei para sair da inércia e que agora entrego em suas mãos.
                     </p>
                 </div>
             </div>
@@ -144,7 +159,7 @@
             <p class="text-7xl md:text-9xl font-black text-green-600 my-4">R$ 27</p>
             <p class="text-slate-600 mb-8 font-semibold uppercase">ou 3x de R$ 9,64</p>
 
-            <a href="https://pay.hotmart.com/I100471987W" class="cta-button inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-5 px-12 rounded-full text-xl shadow-lg transform transition-all duration-300 hover:scale-110 mb-6">
+            <a href="https://pay.hotmart.com/I100471987W" class="cta-button purchase-trigger inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-5 px-12 rounded-full text-xl shadow-lg transform transition-all duration-300 hover:scale-110 mb-6">
                 SIM! QUERO MEU ACESSO IMEDIATO
             </a>
 
@@ -188,15 +203,24 @@
          <div class="container mx-auto px-6 py-20 text-center">
             <h2 class="text-3xl md:text-5xl font-bold mb-4">A decisão é sua.</h2>
             <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10">O tempo vai passar de qualquer jeito. Você vai chegar no final do mês com orgulho do que construiu ou com a mesma desculpa de sempre?</p>
-            <a href="https://pay.hotmart.com/I100471987W" class="cta-button inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg transform transition-all duration-300 hover:scale-110">
+            <a href="https://pay.hotmart.com/I100471987W" class="cta-button purchase-trigger inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg transform transition-all duration-300 hover:scale-110">
                 ESCOLHO MUDAR MINHA HISTÓRIA AGORA
             </a>
-            <p class="text-center text-xs text-slate-600 mt-20">&copy; 2024 | Pare de se Sabotar | Benedito Rodrigo | Todos os direitos reservados.</p>
+            <p class="text-center text-xs text-slate-600 mt-20">&copy; 2026 | Pare de se Sabotar | Benedito Rodrigo | Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
         lucide.createIcons();
+
+        // Rastreamento de clique nos botões de compra (InitiateCheckout)
+        document.querySelectorAll('.purchase-trigger').forEach(button => {
+            button.addEventListener('click', function() {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'InitiateCheckout');
+                }
+            });
+        });
     </script>
 </body>
 </html>
